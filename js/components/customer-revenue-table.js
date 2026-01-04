@@ -146,5 +146,3 @@ class CustomerRevenueTable extends HTMLElement {
 // Register the custom element
 customElements.define('customer-revenue-table', CustomerRevenueTable);
 
-// Register the custom element
-customElements.define('customer-revenue-table', CustomerRevenueTable);
