@@ -1,0 +1,15 @@
+/* Minimal Custom Styles - Fomantic UI handles most styling */
+
+body {
+    background-color: #f7f7f7;
+}
+
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0;
+}
+
+/* Small adjustments for better spacing */
+.ui.segment {
+    margin-bottom: 2rem;
+}

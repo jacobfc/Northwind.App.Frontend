@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "htmlhint.vscode-htmlhint",
+        "stylelint.vscode-stylelint",
+        "dbaeumer.vscode-eslint"
+    ]
+}
