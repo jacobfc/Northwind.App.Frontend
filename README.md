@@ -232,16 +232,18 @@ The frontend application can be deployed to any static hosting service:
 
 This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to the `main` branch.
 
-**Setup:**
-1. Go to repository Settings → Pages
-2. Under "Build and deployment", select "GitHub Actions" as the source
+**One-time Setup:**
+1. Go to repository **Settings** → **Pages**
+2. Under **"Build and deployment"**, select **"GitHub Actions"** as the source
 3. Push to the `main` branch to trigger deployment
-4. The site will be available at: `https://<username>.github.io/Northwind.App.Frontend`
+4. The site will be available at: `https://devcronberg.github.io/Northwind.App.Frontend`
 
 The workflow (`.github/workflows/deploy.yml`) automatically:
 - Installs dependencies
-- Runs linting checks
+- Runs linting checks (HTML, CSS, JavaScript)
 - Deploys the application to GitHub Pages
+
+**After setup**, every push to `main` will automatically deploy the latest version.
 
 ### GitHub Pages (Manual)
 ```bash
