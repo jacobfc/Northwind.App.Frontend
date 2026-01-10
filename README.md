@@ -1,143 +1,143 @@
 # Northwind.App.Frontend
 
-A modern vanilla JavaScript frontend application demonstrating best practices for web components, API integration, and user interface design. Built with HTML5, CSS3, and modern JavaScript ES6+ modules, this application consumes the Northwind Backend API.
+En moderne vanilla JavaScript frontend-applikation, der demonstrerer bedste praksis for web-komponenter, API-integration og brugergrænsefladedesign. Bygget med HTML5, CSS3 og moderne JavaScript ES6+ moduler. Denne applikation forbruger Northwind Backend API.
 
-## 🌟 Features
+## 🌟 Funktioner
 
-- ✅ **Web Components** - Reusable custom elements without frameworks
-- ✅ **Vanilla JavaScript** - No framework dependencies, just modern ES6+
-- ✅ **Responsive Design** - Fomantic UI for consistent styling
-- ✅ **API Integration** - REST API client for Northwind backend
-- ✅ **Customer Dashboard** - Top customers sorted by revenue
-- ✅ **Customer Management** - CRUD operations for customers
-- ✅ **Code Quality Tools** - ESLint, HTMLHint, and Stylelint
-- ✅ **Modular Architecture** - Organized component structure
+- ✅ **Web-komponenter** - Genanvendelige brugerdefinerede elementer uden frameworks
+- ✅ **Vanilla JavaScript** - Ingen framework-afhængigheder, kun moderne ES6+
+- ✅ **Responsivt Design** - Fomantic UI til konsekvent styling
+- ✅ **API-integration** - REST API-klient til Northwind backend
+- ✅ **Kunde Dashboard** - Top-kunder sorteret efter omsætning
+- ✅ **Kundestyring** - CRUD-operationer for kunder
+- ✅ **Kodekvalitetsværktøjer** - ESLint, HTMLHint og Stylelint
+- ✅ **Modulær Arkitektur** - Organiseret komponentstruktur
 
 ## 🚀 Live Demo
 
 **Frontend:** [https://devcronberg.github.io/Northwind.App.Frontend](https://devcronberg.github.io/Northwind.App.Frontend)
 
-The frontend application connects to the deployed backend API:
+Frontend-applikationen forbinder til den deployede backend API:
 
 **Backend API:** [https://northwind-backend-b088.onrender.com](https://northwind-backend-b088.onrender.com)
 
-> ⚠️ **Note:** The backend API is hosted on Render.com's free tier and spins down after 15 minutes of inactivity. The first request may take 30-50 seconds.
+> ⚠️ **Bemærk:** Backend API'en er hostet på Render.com's gratis niveau og lukker ned efter 15 minutters inaktivitet. Den første forespørgsel kan tage 30-50 sekunder.
 
-## 🛠️ Technology Stack
+## 🛠️ Teknologi Stack
 
-- **HTML5** - Semantic markup with custom elements
-- **CSS3** - Modern styling with CSS Grid and Flexbox
-- **JavaScript ES6+** - Modules, classes, async/await
-- **Fomantic UI** - Responsive CSS framework (fork of Semantic UI)
-- **jQuery** - Required by Fomantic UI
+- **HTML5** - Semantisk markup med brugerdefinerede elementer
+- **CSS3** - Moderne styling med CSS Grid og Flexbox
+- **JavaScript ES6+** - Moduler, klasser, async/await
+- **Fomantic UI** - Responsivt CSS framework (fork af Semantic UI)
+- **jQuery** - Krævet af Fomantic UI
 - **Web Components** - Custom Elements API
-- **Fetch API** - Modern HTTP client
+- **Fetch API** - Moderne HTTP-klient
 
-## 📋 Prerequisites
+## 📋 Forudsætninger
 
-- Modern web browser (Chrome, Firefox, Edge, Safari)
-- Local web server (e.g., Live Server, http-server, or VS Code Live Server extension)
-- Node.js and npm (for development tools and linting)
+- Moderne webbrowser (Chrome, Firefox, Edge, Safari)
+- Lokal webserver (f.eks. Live Server, http-server eller VS Code Live Server extension)
+- Node.js og npm (til udviklingsværktøjer og linting)
 
-## 🏃 Getting Started
+## 🏃 Kom i Gang
 
-### 1. Clone the repository
+### 1. Klon repository
 
 ```bash
 git clone https://github.com/devcronberg/Northwind.App.Frontend.git
 cd Northwind.App.Frontend
 ```
 
-### 2. Install development dependencies
+### 2. Installer udviklingsafhængigheder
 
 ```bash
 npm install
 ```
 
-### 3. Start local web server
+### 3. Start lokal webserver
 
-#### With VS Code Live Server extension:
-- Right-click on `index.html`
-- Select "Open with Live Server"
+#### Med VS Code Live Server extension:
+- Højreklik på `index.html`
+- Vælg "Open with Live Server"
 
-#### With http-server:
+#### Med http-server:
 ```bash
 npx http-server -p 8080
 ```
 
-#### With Python:
+#### Med Python:
 ```bash
 python -m http.server 8080
 ```
 
-### 4. Open in browser
+### 4. Åbn i browser
 
-Navigate to: `http://localhost:8080`
+Naviger til: `http://localhost:8080`
 
-## 📁 Project Structure
+## 📁 Projektstruktur
 
 ```text
 Northwind.App.Frontend/
-├── index.html                    # Dashboard page
-├── customers.html                # Customer management page
-├── package.json                  # NPM dependencies and scripts
-├── eslint.config.mjs             # ESLint configuration
+├── index.html                    # Dashboard-side
+├── customers.html                # Kundestyring-side
+├── package.json                  # NPM-afhængigheder og scripts
+├── eslint.config.mjs             # ESLint-konfiguration
 ├── assets/
-│   └── favicon.svg               # App icon
+│   └── favicon.svg               # App-ikon
 ├── css/
-│   └── styles.css                # Custom styling
+│   └── styles.css                # Brugerdefineret styling
 ├── js/
-│   ├── app.js                    # Application entry point
+│   ├── app.js                    # Applikations indgangspunkt
 │   ├── config/
-│   │   └── settings.js           # API and app configuration
+│   │   └── settings.js           # API og app konfiguration
 │   └── components/
-│       ├── app-header.js         # Header component
-│       ├── app-footer.js         # Footer component
-│       ├── customer-table.js     # Customer list table
-│       ├── customer-revenue-table.js  # Revenue dashboard table
-│       └── form-text-input.js    # Reusable form input
+│       ├── app-header.js         # Header-komponent
+│       ├── app-footer.js         # Footer-komponent
+│       ├── customer-table.js     # Kundeliste-tabel
+│       ├── customer-revenue-table.js  # Omsætningsdashboard-tabel
+│       └── form-text-input.js    # Genanvendelig formular-input
 └── .github/
-    └── github-instructions.md    # AI assistant instructions
+    └── github-instructions.md    # AI-assistent instruktioner
 ```
 
-## 🧩 Web Components
+## 🧩 Web-komponenter
 
-The application uses modern Web Components (Custom Elements):
+Applikationen bruger moderne Web Components (Custom Elements):
 
 ### `<app-header>`
-Navigation header with logo and menu links.
+Navigations-header med logo og menu-links.
 
 ### `<app-footer>`
-Footer with copyright information.
+Footer med copyright-information.
 
 ### `<customer-table>`
-Displays all customers in a table with CRUD operations.
+Viser alle kunder i en tabel med CRUD-operationer.
 
-**Attributes:**
-- `limit` (optional) - Maximum number of customers to display
+**Attributter:**
+- `limit` (valgfri) - Maksimalt antal kunder der skal vises
 
 ### `<customer-revenue-table>`
-Dashboard table with top customers sorted by revenue.
+Dashboard-tabel med top-kunder sorteret efter omsætning.
 
-**Attributes:**
-- `limit` (required) - Number of top customers to display
+**Attributter:**
+- `limit` (påkrævet) - Antal top-kunder der skal vises
 
 ### `<form-text-input>`
-Reusable form input field component.
+Genanvendelig formular-inputfelt-komponent.
 
-**Attributes:**
-- `label` - Field label
-- `name` - Form field name
-- `required` (optional) - Whether the field is required
-- `placeholder` (optional) - Placeholder text
+**Attributter:**
+- `label` - Feltetiket
+- `name` - Formularfeltnavn
+- `required` (valgfri) - Om feltet er påkrævet
+- `placeholder` (valgfri) - Pladsholdertekst
 
-## 🌐 API Integration
+## 🌐 API-integration
 
-The application integrates with the Northwind Backend API:
+Applikationen integrerer med Northwind Backend API:
 
-### Configuration
+### Konfiguration
 
-API endpoints are configured in [js/config/settings.js](js/config/settings.js):
+API-endepunkter er konfigureret i [js/config/settings.js](js/config/settings.js):
 
 ```javascript
 export const API_CONFIG = {
@@ -146,27 +146,27 @@ export const API_CONFIG = {
 };
 ```
 
-### Endpoints Used
+### Anvendte Endepunkter
 
-- `GET /api/public/customers` - Get all customers
-- `GET /api/public/customers-with-revenue` - Get customers with revenue
-- `GET /api/public/customers/{id}` - Get specific customer
-- `POST /api/public/customers` - Create new customer
-- `PUT /api/public/customers/{id}` - Update customer
-- `DELETE /api/public/customers/{id}` - Delete customer
+- `GET /api/public/customers` - Hent alle kunder
+- `GET /api/public/customers-with-revenue` - Hent kunder med omsætning
+- `GET /api/public/customers/{id}` - Hent specifik kunde
+- `POST /api/public/customers` - Opret ny kunde
+- `PUT /api/public/customers/{id}` - Opdater kunde
+- `DELETE /api/public/customers/{id}` - Slet kunde
 
 ## 🎨 Styling
 
-The application uses **Fomantic UI** for consistent styling:
+Applikationen bruger **Fomantic UI** til konsekvent styling:
 
-- Responsive grid system
-- Pre-styled components (buttons, tables, forms)
-- Icons via Fomantic UI icon font
-- Custom styling in [css/styles.css](css/styles.css)
+- Responsivt grid-system
+- For-stylede komponenter (knapper, tabeller, formularer)
+- Ikoner via Fomantic UI icon font
+- Brugerdefineret styling i [css/styles.css](css/styles.css)
 
-## 🧪 Code Quality
+## 🧪 Kodekvalitet
 
-### Linting Scripts
+### Linting-scripts
 
 ```bash
 # Lint HTML
@@ -178,83 +178,83 @@ npm run lint:css
 # Lint JavaScript
 npm run lint:js
 
-# Lint all
+# Lint alt
 npm run lint
 ```
 
-### Tools
+### Værktøjer
 
 - **ESLint** - JavaScript linting
-- **HTMLHint** - HTML validation
+- **HTMLHint** - HTML validering
 - **Stylelint** - CSS linting
 
-## 📄 Pages
+## 📄 Sider
 
 ### Dashboard ([index.html](index.html))
-- Displays top 5 customers by revenue
-- Uses `<customer-revenue-table>` component
+- Viser top 5 kunder efter omsætning
+- Bruger `<customer-revenue-table>` komponenten
 
-### Customer Management ([customers.html](customers.html))
-- Complete customer list
-- CRUD operations
-- Uses `<customer-table>` component
+### Kundestyring ([customers.html](customers.html))
+- Komplet kundeliste
+- CRUD-operationer
+- Bruger `<customer-table>` komponenten
 
-## 🔧 Configuration
+## 🔧 Konfiguration
 
-### API Configuration
+### API-konfiguration
 
-Edit [js/config/settings.js](js/config/settings.js) to change the API URL:
+Rediger [js/config/settings.js](js/config/settings.js) for at ændre API URL:
 
 ```javascript
 export const API_CONFIG = {
-    BASE_URL: 'http://localhost:5000/api',  // For local backend
+    BASE_URL: 'http://localhost:5000/api',  // Til lokal backend
     TIMEOUT: 30000,
 };
 ```
 
-## 📝 Best Practices Demonstrated
+## 📝 Demonstrerede Best Practices
 
-- ✅ **Separation of Concerns** - Components, config, and styling separated
-- ✅ **Reusable Components** - Web Components with custom attributes
-- ✅ **Modern JavaScript** - ES6 modules, classes, async/await
-- ✅ **Error Handling** - Try/catch blocks and user feedback
-- ✅ **Loading States** - Visual feedback during API calls
-- ✅ **Responsive Design** - Mobile-first approach
-- ✅ **Code Quality** - Linting and consistent code style
-- ✅ **Semantic HTML** - Proper use of HTML5 elements
-- ✅ **Accessibility** - ARIA labels and semantic tags
+- ✅ **Separation of Concerns** - Komponenter, konfiguration og styling adskilt
+- ✅ **Genanvendelige Komponenter** - Web Components med brugerdefinerede attributter
+- ✅ **Moderne JavaScript** - ES6 moduler, klasser, async/await
+- ✅ **Fejlhåndtering** - Try/catch blokke og bruger-feedback
+- ✅ **Loading States** - Visuel feedback under API-kald
+- ✅ **Responsivt Design** - Mobile-first tilgang
+- ✅ **Kodekvalitet** - Linting og konsekvent kode-stil
+- ✅ **Semantisk HTML** - Korrekt brug af HTML5 elementer
+- ✅ **Tilgængelighed** - ARIA labels og semantiske tags
 
 ## 🚀 Deployment
 
-The frontend application can be deployed to any static hosting service:
+Frontend-applikationen kan deployes til enhver statisk hosting-tjeneste:
 
-### GitHub Pages (Automated)
+### GitHub Pages (Automatiseret)
 
-This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to the `main` branch.
+Dette projekt inkluderer en GitHub Actions workflow, der automatisk deployer til GitHub Pages ved hvert push til `main` branchen.
 
-**One-time Setup:**
-1. Go to repository **Settings** → **Pages**
-2. Under **"Build and deployment"**, select **"GitHub Actions"** as the source
-3. Push to the `main` branch to trigger deployment
-4. The site will be available at: `https://devcronberg.github.io/Northwind.App.Frontend`
+**Engangs-setup:**
+1. Gå til repository **Settings** → **Pages**
+2. Under **"Build and deployment"**, vælg **"GitHub Actions"** som kilde
+3. Push til `main` branchen for at udløse deployment
+4. Siden vil være tilgængelig på: `https://devcronberg.github.io/Northwind.App.Frontend`
 
-The workflow (`.github/workflows/deploy.yml`) automatically:
-- Installs dependencies
-- Runs linting checks (HTML, CSS, JavaScript)
-- Deploys the application to GitHub Pages
+Workflow'en (`.github/workflows/deploy.yml`) gør automatisk:
+- Installerer afhængigheder
+- Kører linting-tjek (HTML, CSS, JavaScript)
+- Deployer applikationen til GitHub Pages
 
-**After setup**, every push to `main` will automatically deploy the latest version.
+**Efter setup**, vil hvert push til `main` automatisk deploye den seneste version.
 
-### GitHub Pages (Manual)
+### GitHub Pages (Manuelt)
 ```bash
-# Alternative: Enable GitHub Pages in repository settings
-# Select main branch and root folder
+# Alternativ: Aktiver GitHub Pages i repository-indstillinger
+# Vælg main branch og rod-mappe
 ```
 
 ### Netlify
 ```bash
-# Drop the folder on netlify.com
-# or connect your GitHub repository
+# Træk mappen til netlify.com
+# eller forbind dit GitHub repository
 ```
 
 ### Vercel
@@ -264,7 +264,7 @@ npx vercel
 
 ### Render Static Site
 ```yaml
-# render.yaml example
+# render.yaml eksempel
 services:
   - type: web
     name: northwind-frontend
@@ -273,33 +273,33 @@ services:
     staticPublishPath: .
 ```
 
-## 🔗 Related Projects
+## 🔗 Relaterede Projekter
 
 - **Backend API**: [Northwind.App.Backend](https://github.com/devcronberg/Northwind.App.Backend)
 - **Live Backend**: [https://northwind-backend-b088.onrender.com](https://northwind-backend-b088.onrender.com)
 - **Swagger API Docs**: [https://northwind-backend-b088.onrender.com/swagger](https://northwind-backend-b088.onrender.com/swagger)
 
-## 🤝 Contributing
+## 🤝 Bidrag
 
-This is a demo project for learning purposes. Feel free to:
+Dette er et demo-projekt til læringsformål. Du er velkommen til at:
 
-- Fork the repository
-- Create feature branches
-- Submit pull requests
-- Report issues
-- Suggest improvements
+- Forke repository'et
+- Oprette feature branches
+- Indsende pull requests
+- Rapportere problemer
+- Foreslå forbedringer
 
-## 📄 License
+## 📄 Licens
 
-This project is open source and available for educational purposes.
+Dette projekt er open source og tilgængeligt til undervisningsformål.
 
-## 🙏 Acknowledgments
+## 🙏 Anerkendelser
 
-- **Northwind Database** - Classic sample database from Microsoft
-- **Fomantic UI Team** - For the excellent CSS framework
-- **Web Components Community** - For standards and best practices
+- **Northwind Database** - Klassisk eksempel-database fra Microsoft
+- **Fomantic UI Team** - For det fremragende CSS framework
+- **Web Components Community** - For standarder og best practices
 
-## 📞 Contact
+## 📞 Kontakt
 
 - **Repository**: https://github.com/devcronberg/Northwind.App.Frontend
 - **Backend API**: https://github.com/devcronberg/Northwind.App.Backend
@@ -307,6 +307,6 @@ This project is open source and available for educational purposes.
 
 ---
 
-**Happy Coding! 🚀**
+**God Kodning! 🚀**
 
-*This is a demo application for educational purposes. For production use, implement proper security, error logging, monitoring, and performance optimization.*
+*Dette er en demo-applikation til undervisningsformål. Til produktionsbrug skal du implementere ordentlig sikkerhed, fejllogning, overvågning og performance-optimering.*
