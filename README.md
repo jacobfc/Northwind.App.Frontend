@@ -15,6 +15,8 @@ A modern vanilla JavaScript frontend application demonstrating best practices fo
 
 ## 🚀 Live Demo
 
+**Frontend:** [https://devcronberg.github.io/Northwind.App.Frontend](https://devcronberg.github.io/Northwind.App.Frontend)
+
 The frontend application connects to the deployed backend API:
 
 **Backend API:** [https://northwind-backend-b088.onrender.com](https://northwind-backend-b088.onrender.com)
@@ -226,9 +228,24 @@ export const API_CONFIG = {
 
 The frontend application can be deployed to any static hosting service:
 
-### GitHub Pages
+### GitHub Pages (Automated)
+
+This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages on every push to the `main` branch.
+
+**Setup:**
+1. Go to repository Settings → Pages
+2. Under "Build and deployment", select "GitHub Actions" as the source
+3. Push to the `main` branch to trigger deployment
+4. The site will be available at: `https://<username>.github.io/Northwind.App.Frontend`
+
+The workflow (`.github/workflows/deploy.yml`) automatically:
+- Installs dependencies
+- Runs linting checks
+- Deploys the application to GitHub Pages
+
+### GitHub Pages (Manual)
 ```bash
-# Enable GitHub Pages in repository settings
+# Alternative: Enable GitHub Pages in repository settings
 # Select main branch and root folder
 ```
 
