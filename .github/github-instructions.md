@@ -1,9 +1,295 @@
-# Northwind Frontend - Undervisningsguide
+# AI Instructions: Northwind Frontend
 
-## 📚 Indholdsfortegnelse
+## Project Overview
 
-1. [Projektbeskrivelse](#projektbeskrivelse)
-2. [Teknologier og Arkitektur](#teknologier-og-arkitektur)
+**Purpose**: Educational demo frontend using vanilla JavaScript, Web Components, and Fomantic UI.
+
+**Key Constraints**:
+- ✅ Vanilla JavaScript only (ES6+ modules) - NO frameworks except Fomantic UI for styling
+- ✅ Web Components without Shadow DOM (for Fomantic UI compatibility)
+- ✅ English language only (code, comments, UI text)
+- ✅ Currency: USD (en-US locale)
+- ✅ **Zero Errors Policy**: No VS Code problems/warnings/errors allowed
+
+## Tech Stack
+
+- **UI Framework**: Fomantic UI 2.9.3 (CSS/components via CDN)
+- **Backend API**: `https://northwind-backend-b088.onrender.com/api`
+- **Linters**: HTMLHint, Stylelint, ESLint (JS/JSON/Markdown/CSS)
+- **Package Manager**: NPM (dev dependencies only)
+
+## Project Structure
+
+```text
+Northwind.App.Frontend.Simple/
+├── .github/
+│   └── github-instructions.md          # This file
+├── .vscode/
+│   └── extensions.json                 # Recommended VS Code extensions
+├── assets/
+│   └── favicon.svg                     # Site icon
+├── css/
+│   └── styles.css                      # Minimal custom styles (Fomantic handles most)
+├── js/
+│   ├── app.js                          # Main entry point
+│   ├── components/
+│   │   ├── app-header.js               # Navigation header
+│   │   ├── app-footer.js               # Footer
+│   │   └── customer-revenue-table.js   # Customer data table
+│   └── config/
+│       └── settings.js                 # API configuration
+├── index.html                          # Main HTML file
+├── .eslintignore                       # Deprecated (use ignores in eslint.config.mjs)
+├── .htmlhintrc                         # HTML linting rules
+├── .stylelintrc.json                   # CSS linting rules
+├── eslint.config.mjs                   # ESLint flat config
+├── package.json                        # NPM scripts and dev dependencies
+└── .gitignore                          # Git ignore patterns
+```
+
+## Component Architecture
+
+### Web Components Pattern
+
+All components extend `HTMLElement` **without Shadow DOM** to allow Fomantic UI styling:
+
+```javascript
+class MyComponent extends HTMLElement {
+    connectedCallback() {
+        this.render();
+    }
+    
+    render() {
+        this.innerHTML = `
+            <div class="ui segment">
+                <!-- Fomantic UI classes work here -->
+            </div>
+        `;
+    }
+}
+
+customElements.define('my-component', MyComponent);
+```
+
+**IMPORTANT**: 
+- NO Shadow DOM (`this.attachShadow()`)
+- Use `this.innerHTML` directly
+- Only define custom elements once (check for duplicate `customElements.define()`)
+
+### Existing Components
+
+1. **app-header.js**: Blue inverted menu with shield icon, Customers/About links
+2. **app-footer.js**: Inverted footer segment with grid layout
+3. **customer-revenue-table.js**: Fetches `/api/public/customers-with-revenue`, renders Fomantic table with loading state
+
+## API Integration
+
+### Configuration
+
+```javascript
+// js/config/settings.js
+export const API_CONFIG = {
+    BASE_URL: 'https://northwind-backend-b088.onrender.com/api',
+    TIMEOUT: 30000
+};
+```
+
+### Available Endpoints
+
+- `GET /api/public/customers-with-revenue` - Customer revenue data (no auth required)
+- Add more endpoints as needed
+
+### Fetch Pattern
+
+```javascript
+import { API_CONFIG } from '../config/settings.js';
+
+async fetchData() {
+    try {
+        const response = await fetch(`${API_CONFIG.BASE_URL}/endpoint`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        // Handle data
+    } catch (error) {
+        console.error('Fetch error:', error);
+        this.error = error.message;
+    }
+}
+```
+
+## Styling Guidelines
+
+### Fomantic UI Usage
+
+Load via CDN in `<head>`:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+```
+
+**Common Components**:
+- `.ui.menu` - Navigation
+- `.ui.container` - Page width
+- `.ui.segment` - Content blocks
+- `.ui.table` - Data tables
+- `.ui.button` - Buttons
+- `.ui.icon` - Icons
+- `.ui.label` - Badges/tags
+- `.ui.dimmer.active` + `.ui.loader` - Loading state
+
+**Color Classes**: `.blue`, `.green`, `.red`, `.teal`, etc.
+**Inverted**: `.inverted` for dark backgrounds
+
+### Custom CSS
+
+Keep `css/styles.css` minimal. Only add custom styles that Fomantic doesn't provide.
+
+## Linting & Code Quality
+
+### Zero Errors Workflow (MANDATORY)
+
+1. **Before making changes**: Run `get_errors` tool to check baseline
+2. **Make changes**
+3. **After changes**: Run `get_errors` again
+4. **If errors found**: Fix them IMMEDIATELY before proceeding
+5. Run `npm run lint` to verify all linters pass
+
+### NPM Scripts
+
+```bash
+npm run lint:html    # HTMLHint
+npm run lint:css     # Stylelint  
+npm run lint:js      # ESLint
+npm run lint         # All linters
+```
+
+### Linter Configs
+
+- **HTMLHint** (`.htmlhintrc`): HTML validation
+- **Stylelint** (`.stylelintrc.json`): CSS validation with stylelint-config-standard
+- **ESLint** (`eslint.config.mjs`): JS/JSON/Markdown/CSS validation
+  - Ignores: `node_modules/`, `package-lock.json`, `*.min.js`, `dist/`, `build/`
+
+### VS Code Extensions
+
+Required extensions (in `.vscode/extensions.json`):
+- `htmlhint.vscode-htmlhint`
+- `stylelint.vscode-stylelint`
+- `dbaeumer.vscode-eslint`
+- `ritwickdey.liveserver`
+- `chromedevtools.vscode-edge-devtools`
+
+## Development Guidelines
+
+### File Creation
+
+When adding new components/files:
+
+1. **Components**: `js/components/component-name.js`
+   - Use kebab-case for filenames and custom element names
+   - Export as class, define at bottom of file
+   - Import in `js/app.js` or parent component
+
+2. **Services**: `js/services/service-name.js`
+   - Export functions or classes
+   - Keep API logic separate from UI
+
+3. **Styles**: Add to `css/styles.css` only if Fomantic doesn't cover it
+
+### Formatting & Conventions
+
+- **Indentation**: 4 spaces (configured in linters)
+- **Quotes**: Single quotes for JS, double for HTML attributes
+- **Currency**: Format with `Intl.NumberFormat` as USD
+- **Language**: English only in all code, comments, UI text
+
+### Testing
+
+- Use `npx http-server -p 8080` or VS Code Live Server to run locally
+- ES6 modules require HTTP server (won't work with `file://` protocol)
+- Check browser console for errors
+- Verify network requests in DevTools
+
+## Common Tasks
+
+### Adding a New Component
+
+1. Create `js/components/my-component.js`:
+```javascript
+class MyComponent extends HTMLElement {
+    connectedCallback() {
+        this.render();
+    }
+    
+    render() {
+        this.innerHTML = `
+            <div class="ui segment">
+                <h3>My Component</h3>
+            </div>
+        `;
+    }
+}
+
+customElements.define('my-component', MyComponent);
+```
+
+2. Import in `js/app.js`:
+```javascript
+import './components/my-component.js';
+```
+
+3. Use in HTML:
+```html
+<my-component></my-component>
+```
+
+4. Run `get_errors` and `npm run lint` to verify
+
+### Adding API Integration
+
+1. Add endpoint config to `js/config/settings.js` if needed
+2. Add fetch logic to component or create service
+3. Handle loading/error states
+4. Format data for display
+5. Test with real API
+
+### Git Workflow
+
+```bash
+git add .
+git commit -m "Descriptive message"
+```
+
+All commits should pass linting (exit code 0).
+
+## Troubleshooting
+
+### CORS Errors with file://
+- Must use HTTP server (Live Server or `npx http-server`)
+- ES6 modules don't work with file:// protocol
+
+### Component Registered Twice
+- Check for duplicate `customElements.define()` calls
+- Clear browser cache with hard reload (Ctrl+Shift+R)
+
+### Fomantic UI Not Styling Component
+- Verify Shadow DOM is NOT used
+- Check that Fomantic CSS/JS is loaded in `<head>`
+- Verify class names match Fomantic documentation
+
+### Linting Errors
+- Run `npm run lint` to see all errors
+- Fix errors immediately (Zero Errors Policy)
+- Check `.htmlhintrc`, `.stylelintrc.json`, `eslint.config.mjs` for rules
+
+## Reference
+
+- **Fomantic UI Docs**: https://fomantic-ui.com/
+- **MDN Web Components**: https://developer.mozilla.org/en-US/docs/Web/Web_Components
+- **Fetch API**: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+- **ES6 Modules**: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
 3. [Projektstruktur](#projektstruktur)
 4. [Kom i Gang](#kom-i-gang)
 5. [Web Components](#web-components)

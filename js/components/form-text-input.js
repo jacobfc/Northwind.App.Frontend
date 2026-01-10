@@ -5,7 +5,7 @@ class FormTextInput extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['label', 'name', 'value', 'placeholder', 'required', 'minlength', 'maxlength', 'password', 'disabled'];
+        return ['label', 'name', 'value', 'placeholder', 'required', 'minlength', 'maxlength', 'password', 'disabled', 'readonly', 'autocomplete'];
     }
 
     connectedCallback() {
@@ -62,13 +62,18 @@ class FormTextInput extends HTMLElement {
         const maxlength = this.getAttribute('maxlength') || '';
         const password = this.hasAttribute('password');
         const disabled = this.hasAttribute('disabled');
+        const readonly = this.hasAttribute('readonly');
+        const autocomplete = this.getAttribute('autocomplete') || 'off';
 
         const inputType = password ? 'password' : 'text';
-        const requiredMark = required ? '<span style="color: red;">*</span>' : '';
+
+        // Set the custom element itself to display: block and width: 100%
+        this.style.display = 'block';
+        this.style.width = '100%';
 
         this.innerHTML = `
-      <div class="field ${required ? 'required' : ''}">
-        <label for="${name}">${label} ${requiredMark}</label>
+      <div class="field ${required ? 'required' : ''}" style="margin-bottom: 1em;">
+        <label for="${name}">${label}</label>
         <input 
           type="${inputType}"
           id="${name}"
@@ -79,6 +84,8 @@ class FormTextInput extends HTMLElement {
           ${minlength ? `minlength="${minlength}"` : ''}
           ${maxlength ? `maxlength="${maxlength}"` : ''}
           ${disabled ? 'disabled' : ''}
+          ${readonly ? 'readonly' : ''}
+          autocomplete="${autocomplete}"
         />
       </div>
     `;

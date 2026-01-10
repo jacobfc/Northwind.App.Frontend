@@ -16,7 +16,7 @@ class AppHeader extends HTMLElement {
             <i class="shield icon"></i>
             Northwind Traders
           </a>
-          <a href="#customers" class="item">
+          <a href="customers.html" class="item">
             <i class="users icon"></i>
             Customers
           </a>
