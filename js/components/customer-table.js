@@ -45,7 +45,7 @@ class CustomerTable extends HTMLElement {
 
     handleEditOrCreate(customerId = null, mode = 'edit') {
         console.log('handleEditOrCreate called:', { customerId, mode });
-        
+
         let customer = null;
         if (mode === 'edit') {
             // Convert to number since data-id is string but API returns numbers
@@ -88,7 +88,7 @@ class CustomerTable extends HTMLElement {
         const modalTitle = isEditMode ? 'Edit Customer' : 'Create Customer';
         const modalIcon = isEditMode ? 'edit' : 'plus';
         const customerIdFieldStyle = isEditMode ? '' : 'display: none;';
-        
+
         console.log('About to populate modal innerHTML');
         try {
             // Populate modal with form
